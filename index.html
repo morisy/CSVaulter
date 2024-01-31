@@ -149,6 +149,7 @@
 </script>
 </body>
 </html>
+
 <script>
   document.addEventListener('DOMContentLoaded', loadRandomData);
 
@@ -169,12 +170,12 @@
 
               document.getElementById('variable-title').textContent = dataObject['variable-title'];
               document.getElementById('variable-description').textContent = dataObject['variable-description'];
-              document.getElementById('variable-image').src = dataObject['variable-image'];
-              document.getElementById('variable-article-url').href = dataObject['variable-article-1-url'];
+              document.getElementById('variable-image').setAttribute('src', dataObject['variable-image']);
+              document.getElementById('variable-article-url').setAttribute('href', dataObject['variable-article-1-url']);
               document.getElementById('variable-article-url').textContent = dataObject['variable-article-1-headline'];
               document.getElementById('variable-foia-description').textContent = dataObject['variable-foia-description'];
               document.getElementById('variable-foia-tips').textContent = dataObject['variable-foia-tips'];
-              document.getElementById('variable-foia-sample-url').href = dataObject['variable-foia-sample-url'];
+              document.getElementById('variable-foia-sample-url').setAttribute('href', dataObject['variable-foia-sample-url']);
               document.getElementById('variable-contributor-name').textContent = dataObject['variable-contributor-name'];
           })
           .catch(error => console.error('Error loading the CSV file:', error));
