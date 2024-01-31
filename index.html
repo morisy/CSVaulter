@@ -148,6 +148,88 @@
     refreshTimeout: 50,
   });
 </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', loadRandomData);
+
+  function loadRandomData() {
+      console.log('Loading random data from CSV...');
+      fetch('requests.csv')
+          .then(response => response.text())
+          .then(data => {
+              console.log('CSV data loaded:', data);
+              const rows = data.split(/
+|
+/);
+              console.log('Rows in CSV:', rows);
+              const headers = rows[0].split(',');
+              const randomRowIndex = Math.floor(Math.random() * (rows.length - 1)) + 1;
+              console.log('Random row index:', randomRowIndex);
+              const randomRow = rows[randomRowIndex].split(',');
+              console.log('Random row selected:', randomRow);
+
+              const dataObject = headers.reduce((obj, header, index) => {
+                  obj[header.trim()] = randomRow[index].trim();
+                  return obj;
+              }, {});
+              console.log('Data object:', dataObject);
+
+              // Updating elements with the data from the CSV
+              document.getElementById('variable-title').textContent = dataObject['variable-title'];
+              document.getElementById('variable-description').textContent = dataObject['variable-description'];
+              document.getElementById('variable-image').setAttribute('src', dataObject['variable-image']);
+              document.getElementById('variable-article-url').setAttribute('href', dataObject['variable-article-1-url']);
+              document.getElementById('variable-article-url').textContent = dataObject['variable-article-1-headline'];
+              document.getElementById('variable-foia-description').textContent = dataObject['variable-foia-description'];
+              document.getElementById('variable-foia-tips').textContent = dataObject['variable-foia-tips'];
+              document.getElementById('variable-foia-sample-url').setAttribute('href', dataObject['variable-foia-sample-url']);
+              document.getElementById('variable-contributor-name').textContent = dataObject['variable-contributor-name'];
+          })
+          .catch(error => {
+              console.error('Error loading the CSV file:', error);
+          });
+  }
+</script>
+
+<script type="text/javascript" nonce="kQLjGDafgNDVFiBo0wheHw">
+  cssVars() // polyfills css variables for IE11
+</script>
+<script nonce="kQLjGDafgNDVFiBo0wheHw">simpleSocialShare.init();</script>
+<script nonce="kQLjGDafgNDVFiBo0wheHw">
+  PullToRefresh.init({
+    refreshTimeout: 50,
+  });
+</script>
+
+<script type="text/javascript" nonce="kQLjGDafgNDVFiBo0wheHw">
+  cssVars() // polyfills css variables for IE11
+</script>
+<script nonce="kQLjGDafgNDVFiBo0wheHw">simpleSocialShare.init();</script>
+<script nonce="kQLjGDafgNDVFiBo0wheHw">
+  PullToRefresh.init({
+    refreshTimeout: 50,
+  });
+</script>
+
+<script type="text/javascript" nonce="kQLjGDafgNDVFiBo0wheHw">
+  cssVars() // polyfills css variables for IE11
+</script>
+<script nonce="kQLjGDafgNDVFiBo0wheHw">simpleSocialShare.init();</script>
+<script nonce="kQLjGDafgNDVFiBo0wheHw">
+  PullToRefresh.init({
+    refreshTimeout: 50,
+  });
+</script>
+
+<script type="text/javascript" nonce="kQLjGDafgNDVFiBo0wheHw">
+  cssVars() // polyfills css variables for IE11
+</script>
+<script nonce="kQLjGDafgNDVFiBo0wheHw">simpleSocialShare.init();</script>
+<script nonce="kQLjGDafgNDVFiBo0wheHw">
+  PullToRefresh.init({
+    refreshTimeout: 50,
+  });
+</script>
 <script>
   document.addEventListener('DOMContentLoaded', loadRandomData);
 
