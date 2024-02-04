@@ -120,45 +120,40 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('CSV text conversion done. Parsing data...');
             const rows = data.split(/\r\n|\n/);
             console.log(`Total rows in CSV (including header): ${rows.length}`);
-            const headers = rows[0].split(',');
+            const headers = rows[0].split(',').map(header => header.trim());
             const titleIndex = headers.indexOf('variable-title');
             const tipsIndex = headers.indexOf('variable-foia-tips');
 
-            // Ensuring there are rows other than the header to choose from
             if (rows.length > 1) {
                 const randomRowIndex = Math.floor(Math.random() * (rows.length - 1)) + 1;
-                const selectedRow = rows[randomRowIndex].split(',');
+                const selectedRow = parseCSVRow(rows[randomRowIndex]);
 
-                // Extracting both the title and the tip from the same row
                 const selectedTitle = selectedRow[titleIndex];
                 const selectedTip = selectedRow[tipsIndex];
 
                 console.log(`Selected title: ${selectedTitle}`);
                 console.log(`Selected FOIA tip: ${selectedTip}`);
 
-                // Updating the <h1> tag for title
                 const titleElement = document.querySelector('h1');
                 if (titleElement) {
-                    console.log(`Updating H1 element with selected title.`);
                     titleElement.textContent = selectedTitle;
-                } else {
-                    console.error('H1 element not found.');
                 }
 
-                // Finding and updating the place for FOIA tips
-                const tipsElements = document.querySelectorAll('p');
-                tipsElements.forEach(element => {
-                    if (element.textContent.includes('variable-foia-tips')) {
-                        console.log(`Updating element with FOIA tip.`);
-                        element.textContent = selectedTip;
-                    }
-                });
-            } else {
-                console.error('Not enough data in CSV to select a row.');
+                const tipsElement = document.querySelector('p'); // Adjust this selector as needed
+                if (tipsElement && selectedTip) {
+                    tipsElement.textContent = selectedTip;
+                }
             }
         })
         .catch(error => console.error('Error loading the CSV file:', error));
 });
+
+function parseCSVRow(row) {
+    // Basic parsing that assumes no commas in data fields
+    // This needs to be replaced with logic to handle quoted fields containing commas
+    return row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
+}
+
 
 </script>
 </body>
