@@ -28,10 +28,10 @@
 <main>
 
 
-  <section class="intro">
-    <p class="title">You have the right to</p>
-    <h1>variable-title</h1>
-  </section>
+<section class="intro">
+  <p class="title">You have the right to... </p>
+  <h1 data-dynamic-content="title">variable-title</h1>
+</section>
 
   
   
@@ -58,11 +58,11 @@
     <p>variable-foia-description</p>
     
     <details>
-      <summary class="more">More info</summary>
-      
-        <p class="title">Tips for filing this request</p>
-        <p>variable-foia-tips</p>
-      
+       <summary class="more">More info</summary>
+    
+    <p class="title">Tips for filing this request</p>
+    <p data-dynamic-content="foia-tips">variable-foia-tips</p>
+    
       
         <p class="title">Sample <abbr title="Freedom of Information Act">FOIA</abbr> request of this type</p>
         <p><a target="_blank" href="variable-foia-sample-url">variable-foia-sample-title</a></p>
@@ -110,50 +110,38 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Document loaded. Starting to fetch the CSV...');
     fetch('requests.csv')
-        .then(response => {
-            console.log('CSV fetched successfully. Converting to text...');
-            return response.text();
-        })
-        .then(data => {
-            console.log('CSV text conversion done. Parsing data...');
-            const rows = data.split(/\r\n|\n/);
-            console.log(`Total rows in CSV (including header): ${rows.length}`);
-            const headers = rows[0].split(',').map(header => header.trim());
-            const titleIndex = headers.indexOf('variable-title');
-            const tipsIndex = headers.indexOf('variable-foia-tips');
+    .then(response => response.text())
+    .then(data => {
+        const rows = data.split(/\r\n|\n/);
+        const headers = rows[0].split(',');
+        const titleIndex = headers.indexOf('variable-title');
+        const tipsIndex = headers.indexOf('variable-foia-tips');
 
-            if (rows.length > 1) {
-                const randomRowIndex = Math.floor(Math.random() * (rows.length - 1)) + 1;
-                const selectedRow = parseCSVRow(rows[randomRowIndex]);
+        if (rows.length > 1) {
+            const randomRowIndex = Math.floor(Math.random() * (rows.length - 1)) + 1;
+            const selectedRow = parseCSVRow(rows[randomRowIndex]);
 
-                const selectedTitle = selectedRow[titleIndex];
-                const selectedTip = selectedRow[tipsIndex];
+            const selectedTitle = selectedRow[titleIndex];
+            const selectedTip = selectedRow[tipsIndex];
 
-                console.log(`Selected title: ${selectedTitle}`);
-                console.log(`Selected FOIA tip: ${selectedTip}`);
-
-                const titleElement = document.querySelector('h1');
-                if (titleElement) {
-                    titleElement.textContent = selectedTitle;
-                }
-
-                const tipsElement = document.querySelector('p'); // Adjust this selector as needed
-                if (tipsElement && selectedTip) {
-                    tipsElement.textContent = selectedTip;
-                }
+            const titleElement = document.querySelector('[data-dynamic-content="title"]');
+            if (titleElement) {
+                titleElement.textContent = selectedTitle;
             }
-        })
-        .catch(error => console.error('Error loading the CSV file:', error));
+
+            const tipsElement = document.querySelector('[data-dynamic-content="foia-tips"]');
+            if (tipsElement) {
+                tipsElement.textContent = selectedTip;
+            }
+        }
+    })
+    .catch(error => console.error('Error loading the CSV file:', error));
 });
 
 function parseCSVRow(row) {
-    // Basic parsing that assumes no commas in data fields
-    // This needs to be replaced with logic to handle quoted fields containing commas
     return row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
 }
-
 
 </script>
 </body>
