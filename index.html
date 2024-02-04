@@ -113,26 +113,28 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('requests.csv')
         .then(response => response.text())
         .then(data => {
-            // Split CSV by row, then identify and parse the header
             const rows = data.split(/\r\n|\n/);
-            const headers = rows[0].split(',');
-            const titleIndex = headers.indexOf('variable-title');
-
-            // Randomly select a row (excluding the header), then extract the desired title
-            const randomRowIndex = Math.floor(Math.random() * (rows.length - 1)) + 1;
-            const selectedRow = rows[randomRowIndex];
-            const selectedTitle = selectedRow.split(',')[titleIndex];
-
-            // Find the <h1> tag containing "variable-title" and replace its content
-            const titleElements = document.querySelectorAll('h1');
-            titleElements.forEach(element => {
-                if (element.textContent.trim() === 'variable-title') {
-                    element.textContent = selectedTitle;
-                }
+            const titles = rows.slice(1).map(row => {
+                // Attempting a simple parse; this needs improvement for complex CSVs
+                const matches = row.match(/"([^"]+)"/); // Look for the first quoted string
+                return matches ? matches[1] : row.split(',')[1]; // Fallback to splitting by comma
             });
+
+            // Ensure we have titles to choose from
+            if (titles.length > 0) {
+                const randomIndex = Math.floor(Math.random() * titles.length);
+                const selectedTitle = titles[randomIndex];
+
+                // Find the <h1> tag and update its content
+                const titleElement = document.querySelector('h1');
+                if (titleElement) {
+                    titleElement.textContent = selectedTitle;
+                }
+            }
         })
         .catch(error => console.error('Error loading the CSV file:', error));
 });
+
 </script>
 </body>
 </html>
