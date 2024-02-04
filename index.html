@@ -9,10 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:site_name" content="Muck.Rocks">
 
-<meta property="og:title" content="You have the right to... id="variable-title">">
-<meta property="og:description" content="id="variable-description">">
+<meta property="og:title" content="You have the right to... variable-title">
+<meta property="og:description" content="variable-description">
 
-  <meta property="og:image" content="id="variable-image">">
+  <meta property="og:image" content="variable-image">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:url" content="https://www.muck.rocks/request/1">
@@ -30,7 +30,7 @@
 
   <section class="intro">
     <p class="title">You have the right to</p>
-    <h1>id="variable-title"></h1>
+    <h1>variable-title</h1>
   </section>
 
   
@@ -39,11 +39,11 @@
     <p class="title"><abbr title="Freedom of Information Act">FOIA</abbr>-powered news</p>
     <figure>
       
-        <img src="id="variable-image">" alt=""/>
+        <img src="variable-image" alt=""/>
       
       <figcaption>
         
-        <a target="_blank" href="id="variable-article-url">">id="variable-article-url"></a>
+        <a target="_blank" href="variable-article-1-url">variable-article-1-headline</a>
         
       </figcaption>
     </figure>
@@ -55,21 +55,21 @@
   
 
   <section class="foia-description">
-    <p>id="variable-foia-description"></p>
+    <p>variable-foia-description</p>
     
     <details>
       <summary class="more">More info</summary>
       
         <p class="title">Tips for filing this request</p>
-        <p>id="variable-foia-tips"></p>
+        <p>variable-foia-tips</p>
       
       
         <p class="title">Sample <abbr title="Freedom of Information Act">FOIA</abbr> request of this type</p>
-        <p><a target="_blank" href="id="variable-foia-sample-url">">variable-foia-sample-title</a></p>
+        <p><a target="_blank" href="variable-foia-sample-url">variable-foia-sample-title</a></p>
       
       
         <p class="title">Submitted by</p>
-        <p>id="variable-contributor-name"></p>
+        <p>variable-contributor-name</p>
       
     </details>
     
@@ -108,190 +108,31 @@
 
 </footer>
 
-<script src="https://web.archive.org/web/20201024091058js_/https://cdn.jsdelivr.net/npm/css-vars-ponyfill@1"></script>
-<script type="text/javascript" nonce="kQLjGDafgNDVFiBo0wheHw">
-  cssVars() // polyfills css variables for IE11
-</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">simpleSocialShare.init();</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">
-  PullToRefresh.init({
-    refreshTimeout: 50,
-  });
-</script>
-
-<script type="text/javascript" nonce="kQLjGDafgNDVFiBo0wheHw">
-  cssVars() // polyfills css variables for IE11
-</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">simpleSocialShare.init();</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">
-  PullToRefresh.init({
-    refreshTimeout: 50,
-  });
-</script>
-
-<script type="text/javascript" nonce="kQLjGDafgNDVFiBo0wheHw">
-  cssVars() // polyfills css variables for IE11
-</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">simpleSocialShare.init();</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">
-  PullToRefresh.init({
-    refreshTimeout: 50,
-  });
-</script>
-
-<script type="text/javascript" nonce="kQLjGDafgNDVFiBo0wheHw">
-  cssVars() // polyfills css variables for IE11
-</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">simpleSocialShare.init();</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">
-  PullToRefresh.init({
-    refreshTimeout: 50,
-  });
-</script>
-
 <script>
-  document.addEventListener('DOMContentLoaded', loadRandomData);
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('requests.csv')
+        .then(response => response.text())
+        .then(data => {
+            // Split CSV by row, then identify and parse the header
+            const rows = data.split(/\r\n|\n/);
+            const headers = rows[0].split(',');
+            const titleIndex = headers.indexOf('variable-title');
 
-  function loadRandomData() {
-      console.log('Loading random data from CSV...');
-      fetch('requests.csv')
-          .then(response => response.text())
-          .then(data => {
-              console.log('CSV data loaded:', data);
-              const rows = data.split(/
-|
-/);
-              console.log('Rows in CSV:', rows);
-              const headers = rows[0].split(',');
-              const randomRowIndex = Math.floor(Math.random() * (rows.length - 1)) + 1;
-              console.log('Random row index:', randomRowIndex);
-              const randomRow = rows[randomRowIndex].split(',');
-              console.log('Random row selected:', randomRow);
+            // Randomly select a row (excluding the header), then extract the desired title
+            const randomRowIndex = Math.floor(Math.random() * (rows.length - 1)) + 1;
+            const selectedRow = rows[randomRowIndex];
+            const selectedTitle = selectedRow.split(',')[titleIndex];
 
-              const dataObject = headers.reduce((obj, header, index) => {
-                  obj[header.trim()] = randomRow[index].trim();
-                  return obj;
-              }, {});
-              console.log('Data object:', dataObject);
-
-              // Updating elements with the data from the CSV
-              document.getElementById('variable-title').textContent = dataObject['variable-title'];
-              document.getElementById('variable-description').textContent = dataObject['variable-description'];
-              document.getElementById('variable-image').setAttribute('src', dataObject['variable-image']);
-              document.getElementById('variable-article-url').setAttribute('href', dataObject['variable-article-1-url']);
-              document.getElementById('variable-article-url').textContent = dataObject['variable-article-1-headline'];
-              document.getElementById('variable-foia-description').textContent = dataObject['variable-foia-description'];
-              document.getElementById('variable-foia-tips').textContent = dataObject['variable-foia-tips'];
-              document.getElementById('variable-foia-sample-url').setAttribute('href', dataObject['variable-foia-sample-url']);
-              document.getElementById('variable-contributor-name').textContent = dataObject['variable-contributor-name'];
-          })
-          .catch(error => {
-              console.error('Error loading the CSV file:', error);
-          });
-  }
-</script>
-
-<script type="text/javascript" nonce="kQLjGDafgNDVFiBo0wheHw">
-  cssVars() // polyfills css variables for IE11
-</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">simpleSocialShare.init();</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">
-  PullToRefresh.init({
-    refreshTimeout: 50,
-  });
-</script>
-
-<script type="text/javascript" nonce="kQLjGDafgNDVFiBo0wheHw">
-  cssVars() // polyfills css variables for IE11
-</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">simpleSocialShare.init();</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">
-  PullToRefresh.init({
-    refreshTimeout: 50,
-  });
-</script>
-
-<script type="text/javascript" nonce="kQLjGDafgNDVFiBo0wheHw">
-  cssVars() // polyfills css variables for IE11
-</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">simpleSocialShare.init();</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">
-  PullToRefresh.init({
-    refreshTimeout: 50,
-  });
-</script>
-
-<script type="text/javascript" nonce="kQLjGDafgNDVFiBo0wheHw">
-  cssVars() // polyfills css variables for IE11
-</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">simpleSocialShare.init();</script>
-<script nonce="kQLjGDafgNDVFiBo0wheHw">
-  PullToRefresh.init({
-    refreshTimeout: 50,
-  });
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', loadRandomData);
-
-  function loadRandomData() {
-      fetch('requests.csv')
-          .then(response => response.text())
-          .then(data => {
-              const rows = data.split(/\r\n|\n/);
-              const headers = rows[0].split(',');
-              const randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1].split(',');
-
-              const dataObject = headers.reduce((obj, header, index) => {
-                  obj[header.trim()] = randomRow[index].trim();
-                  return obj;
-              }, {});
-
-              document.getElementById('id="variable-title">').textContent = dataObject['id="variable-title">'];
-              document.getElementById('id="variable-description">').textContent = dataObject['id="variable-description">'];
-              document.getElementById('id="variable-image">').src = dataObject['id="variable-image">'];
-              document.getElementById('variable-article-url').href = dataObject['id="variable-article-url">'];
-              document.getElementById('variable-headline').textContent = dataObject['id="variable-article-url">'];
-              document.getElementById('id="variable-foia-description">').textContent = dataObject['id="variable-foia-description">'];
-              document.getElementById('id="variable-foia-tips">').textContent = dataObject['id="variable-foia-tips">'];
-              document.getElementById('id="variable-foia-sample-url">').href = dataObject['id="variable-foia-sample-url">'];
-              document.getElementById('id="variable-contributor-name">').textContent = dataObject['id="variable-contributor-name">'];
-          })
-          .catch(error => console.error('Error loading the CSV file:', error));
-  }
+            // Find the <h1> tag containing "variable-title" and replace its content
+            const titleElements = document.querySelectorAll('h1');
+            titleElements.forEach(element => {
+                if (element.textContent.trim() === 'variable-title') {
+                    element.textContent = selectedTitle;
+                }
+            });
+        })
+        .catch(error => console.error('Error loading the CSV file:', error));
+});
 </script>
 </body>
 </html>
-
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', loadRandomData);
-
-  function loadRandomData() {
-      fetch('requests.csv')
-          .then(response => response.text())
-          .then(data => {
-              const rows = data.split(/
-|
-/);
-              const headers = rows[0].split(',');
-              const randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1].split(',');
-
-              const dataObject = headers.reduce((obj, header, index) => {
-                  obj[header.trim()] = randomRow[index].trim();
-                  return obj;
-              }, {});
-
-              document.getElementById('variable-title').textContent = dataObject['variable-title'];
-              document.getElementById('variable-description').textContent = dataObject['variable-description'];
-              document.getElementById('variable-image').setAttribute('src', dataObject['variable-image']);
-              document.getElementById('variable-article-url').setAttribute('href', dataObject['variable-article-1-url']);
-              document.getElementById('variable-article-url').textContent = dataObject['variable-article-1-headline'];
-              document.getElementById('variable-foia-description').textContent = dataObject['variable-foia-description'];
-              document.getElementById('variable-foia-tips').textContent = dataObject['variable-foia-tips'];
-              document.getElementById('variable-foia-sample-url').setAttribute('href', dataObject['variable-foia-sample-url']);
-              document.getElementById('variable-contributor-name').textContent = dataObject['variable-contributor-name'];
-          })
-          .catch(error => console.error('Error loading the CSV file:', error));
-  }
-</script>
