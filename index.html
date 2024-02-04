@@ -120,24 +120,23 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('CSV text conversion done. Parsing data...');
             const rows = data.split(/\r\n|\n/);
             console.log(`Total rows in CSV (including header): ${rows.length}`);
+            const headers = rows[0].split(',');
+            const titleIndex = headers.indexOf('variable-title');
+            const tipsIndex = headers.indexOf('variable-foia-tips');
 
-            const titles = rows.slice(1).map(row => {
-                const matches = row.match(/"([^"]+)"/); // Attempt to capture quoted strings
-                if (matches) {
-                    console.log(`Quoted string found: ${matches[1]}`);
-                    return matches[1];
-                } else {
-                    const splitRow = row.split(',')[1]; // Fallback
-                    console.log(`Fallback split used, selected title: ${splitRow}`);
-                    return splitRow;
-                }
-            });
+            // Ensuring there are rows other than the header to choose from
+            if (rows.length > 1) {
+                const randomRowIndex = Math.floor(Math.random() * (rows.length - 1)) + 1;
+                const selectedRow = rows[randomRowIndex].split(',');
 
-            if (titles.length > 0) {
-                const randomIndex = Math.floor(Math.random() * titles.length);
-                const selectedTitle = titles[randomIndex];
+                // Extracting both the title and the tip from the same row
+                const selectedTitle = selectedRow[titleIndex];
+                const selectedTip = selectedRow[tipsIndex];
+
                 console.log(`Selected title: ${selectedTitle}`);
+                console.log(`Selected FOIA tip: ${selectedTip}`);
 
+                // Updating the <h1> tag for title
                 const titleElement = document.querySelector('h1');
                 if (titleElement) {
                     console.log(`Updating H1 element with selected title.`);
@@ -145,12 +144,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     console.error('H1 element not found.');
                 }
+
+                // Finding and updating the place for FOIA tips
+                const tipsElements = document.querySelectorAll('p');
+                tipsElements.forEach(element => {
+                    if (element.textContent.includes('variable-foia-tips')) {
+                        console.log(`Updating element with FOIA tip.`);
+                        element.textContent = selectedTip;
+                    }
+                });
             } else {
-                console.error('No titles found in CSV.');
+                console.error('Not enough data in CSV to select a row.');
             }
         })
         .catch(error => console.error('Error loading the CSV file:', error));
 });
+
 </script>
 </body>
 </html>
