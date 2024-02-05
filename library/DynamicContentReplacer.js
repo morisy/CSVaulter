@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('Document loaded. Initializing content replacement...');
 
-    const csvUrl = 'https://raw.githubusercontent.com/morisy/quickrocks/main/requests.csv'; // Make sure this path is correct
+    const csvUrl = 'https://raw.githubusercontent.com/morisy/quickrocks/main/library/nonsense.csv'; // Make sure this path is correct
 
     async function fetchAndParseCSV(url) {
         console.log(`Fetching CSV data from: ${url}`);
