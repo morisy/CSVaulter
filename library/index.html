@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Content Replacement Demo</title>
+    <!-- Papa Parse Library for CSV parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <!-- Dynamic Content Replacement Script -->
+    <script src="DynamicContentReplacer.js"></script>
+</head>
+<body>
+    <h1>Dynamic Content Replacement Demo</h1>
+    <p>This page demonstrates dynamic content replacement from a CSV file.</p>
+
+    <!-- Examples of content to be replaced dynamically -->
+    <div>
+        <h2 data-csv-replace="variable-title">Default Title</h2>
+        <p data-csv-replace="variable-description">Default description here...</p>
+        <img data-csv-replace="variable-image" src="default-image.jpg" alt="Dynamic Image" style="width: 300px; height: auto;">
+        <a data-csv-replace="variable-article-1-url" href="default-url.html">Read More...</a>
+        <h3 data-csv-replace="variable-article-1-headline">Default Headline</h3>
+    </div>
+
+    <!-- Fallback message for users with JavaScript disabled -->
+    <noscript>
+        <p>Your experience may be limited as JavaScript is disabled in your browser. Please enable JavaScript for the full experience.</p>
+    </noscript>
+</body>
+</html>
