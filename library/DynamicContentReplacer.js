@@ -1,6 +1,6 @@
 // DynamicContentReplacer.js
 document.addEventListener('DOMContentLoaded', async () => {
-    const csvUrl = 'path_to_your_csv_file.csv'; // Update with the actual CSV file path
+    const csvUrl = 'https://raw.githubusercontent.com/morisy/quickrocks/main/requests.csv'; // Update with the actual CSV file path
 
     async function fetchAndParseCSV(url) {
         try {
