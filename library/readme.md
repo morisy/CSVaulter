@@ -6,7 +6,9 @@ Ever wish you could run a dynamic, fast-moving media startup without any effort 
 
 ## Step 1: Embrace the Chaos
 
-First, ensure you have a CSV file filled with the tantalizing tidbits of data you want to dynamically display.
+![image](https://github.com/morisy/CSVaulter/assets/136939/3cfd8c6a-cfee-45db-ab78-c375edafd9bc)
+
+First, ensure you have a CSV file filled with the Content you want to dynamically display. This can include headlines, links, image URLs, paragraphs, etc.
 
 Sample CSV format:
 
