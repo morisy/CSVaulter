@@ -45,11 +45,12 @@ Include CSVaulter (and Papa Parse) in your HTML.
 
 Use data-csv-replace attributes to earmark elements for dynamic content replacement. Ensure that the underlying content is something that will work as a fallback in case users have JavaScript disabled.
 
+```
 <h2 data-csv-replace="variable-title">Fallback Title</h2>
 <p data-csv-replace="variable-description">Fallback Description</p>
 <img data-csv-replace="variable-image" src="fallback-image.jpg" alt="Fallback Image">
 <a data-csv-replace="variable-article-1-url" href="fallback-url.html">Fallback Link</a>
-
+```
 
 ![image](https://github.com/morisy/quickrocks/assets/136939/52fa9acd-273d-4959-86d6-a67687bcef0e)
 
