@@ -43,6 +43,8 @@ Include CSVaulter (and Papa Parse) in your HTML.
 
 ## Step 3: Tag content for replacing
 
+![image](https://github.com/morisy/quickrocks/assets/136939/d56809da-d514-4fde-9ce3-641086ebf696)
+
 Use data-csv-replace attributes to earmark elements for dynamic content replacement. Ensure that the underlying content is something that will work as a fallback in case users have JavaScript disabled.
 
 ```
@@ -52,7 +54,6 @@ Use data-csv-replace attributes to earmark elements for dynamic content replacem
 <a data-csv-replace="variable-article-1-url" href="fallback-url.html">Fallback Link</a>
 ```
 
-![image](https://github.com/morisy/quickrocks/assets/136939/52fa9acd-273d-4959-86d6-a67687bcef0e)
 
 ## Step 4: Watch the Magic Happen
 
@@ -62,7 +63,6 @@ Load your page, and watch as CSVaulter breathes life into your content. With eac
 
 Want to target a specific row based on whimsy or user interaction, or make it so that people can share specific iterations easily? Toss a #rowId at the end of your URL (e.g., `yourdomain.com/#2`) and watch CSVaulter fetch content from that specific row like a well-trained retriever.
 
-
-![image](https://github.com/morisy/quickrocks/assets/136939/d56809da-d514-4fde-9ce3-641086ebf696)
+Vaulter can also be used to update images, links, etc. as in the above examples. 
 
 ![image](https://github.com/morisy/quickrocks/assets/136939/9831a43b-16a1-40c4-aff9-9307561623d0)
