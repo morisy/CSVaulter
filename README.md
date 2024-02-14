@@ -4,11 +4,11 @@ Ever wish you could run a dynamic, fast-moving media startup without any effort 
 
 ![image](https://github.com/morisy/quickrocks/assets/136939/771dae7f-0472-46f7-92e9-1cdfad284fd9)
 
-## Step 1: Embrace the Chaos
+## Step 1: Create Your Content&trade;
 
 ![image](https://github.com/morisy/CSVaulter/assets/136939/3cfd8c6a-cfee-45db-ab78-c375edafd9bc)
 
-First, ensure you have a CSV file filled with the Content you want to dynamically display. This can include headlines, links, image URLs, paragraphs, etc.
+First, ensure you have a CSV file filled with the Content&trade; you want to dynamically display. This can include headlines, links, image URLs, paragraphs, etc.
 
 Sample CSV format:
 
@@ -20,7 +20,7 @@ variable-id,variable-title,variable-description,variable-image,variable-article-
 
 Upload this somewhere on the web.
 
-## Step 2: Summon CSVaulter
+## Step 2: Import CSVaulter, the Future of All Media
 
 Include CSVaulter (and Papa Parse) in your HTML. 
 
@@ -43,7 +43,7 @@ Include CSVaulter (and Papa Parse) in your HTML.
 
 ```
 
-## Step 3: Tag content for replacing
+## Step 3: Tag content for upgrading
 
 ![image](https://github.com/morisy/quickrocks/assets/136939/d56809da-d514-4fde-9ce3-641086ebf696)
 
@@ -57,7 +57,7 @@ Use data-csv-replace attributes to earmark elements for dynamic content replacem
 ```
 
 
-## Step 4: Watch the Magic Happen
+## Step 4: Synergize
 
 Load your page, and watch as CSVaulter breathes life into your content. With each refresh, a new possibility unfolds. It's like your site is living its best life, thanks to you (and a little CSV magic). Note that due to cross-site scripting restrictions, this probably won't work locally unless you tweak you developer settings.
 
