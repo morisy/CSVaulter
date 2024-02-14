@@ -1,0 +1,51 @@
+.title {
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin-top: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.more {
+    color: #ad9cd4;
+    font-size: small;
+    text-align: right;
+    cursor: pointer;
+}
+
+.more:focus {
+    outline: none;
+}
+
+.container {
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+@media all and (max-width: 450px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+/*
+     FILE ARCHIVED ON 16:56:57 Apr 04, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:52:02 Jan 17, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 290.702
+  exclusion.robots: 0.115
+  exclusion.robots.policy: 0.1
+  cdx.remote: 0.083
+  esindex: 0.015
+  LoadShardBlock: 127.004 (3)
+  PetaboxLoader3.datanode: 129.778 (4)
+  load_resource: 78.138
+  PetaboxLoader3.resolve: 59.613
+*/

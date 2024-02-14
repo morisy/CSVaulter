@@ -1,0 +1,265 @@
+.intro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.intro h1 {
+    font-weight: lighter;
+    font-size: 3rem;
+    margin: 0;
+    line-height: 1.15;
+}
+
+.logo {
+    color: orange;
+    text-decoration: none;
+    -webkit-animation: rainbow 5s infinite; 
+    -ms-animation: rainbow 5s infinite;
+    animation: rainbow 5s infinite;
+}
+
+@-webkit-keyframes rainbow{
+  0%{color: orange;}	
+  10%{color: purple;}	
+	20%{color: red;}
+  30%{color: CadetBlue;}
+	40%{color: yellow;}
+  50%{color: coral;}
+	60%{color: green;}
+  70%{color: cyan;}
+  80%{color: DeepPink;}
+  90%{color: DodgerBlue;}
+	100%{color: orange;}
+}
+
+/* Internet Explorer */
+@-ms-keyframes rainbow{
+   0%{color: orange;}	
+  10%{color: purple;}	
+	20%{color: red;}
+  30%{color: CadetBlue;}
+	40%{color: yellow;}
+  50%{color: coral;}
+	60%{color: green;}
+  70%{color: cyan;}
+  80%{color: DeepPink;}
+  90%{color: DodgerBlue;}
+	100%{color: orange;}
+}
+
+/* Standar Syntax */
+@keyframes rainbow{
+    0%{color: orange;}	
+  10%{color: purple;}	
+	20%{color: red;}
+  30%{color: CadetBlue;}
+	40%{color: yellow;}
+  50%{color: coral;}
+	60%{color: green;}
+  70%{color: cyan;}
+  80%{color: DeepPink;}
+  90%{color: DodgerBlue;}
+	100%{color: orange;}
+}
+
+
+@media all and (max-width: 450px) {
+    .intro .title {
+        margin-top: 0;
+    }
+
+    .intro h1 {
+        line-height: 0.9;
+        font-size: 2.25rem;
+    }
+}
+
+.external-links {
+    margin-bottom: 1rem;
+}
+
+.external-links figure {
+    margin: 0;
+    position: relative;
+}
+
+.external-links figcaption {
+    background-color: white;
+    background-color: rgba(255,255,255,0.8);
+    padding: 0.75rem;
+    position: absolute;
+    bottom: 0.25em;
+}
+
+.external-links figcaption a {
+    text-decoration: none;
+    font-family: "Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--blue-bright-border-dark);
+}
+
+.external-links figcaption a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.external-links img {
+    object-fit: cover;
+    width: 100%;
+    height: 400px;
+}
+
+.primary {
+    border-color: var(--blue-bright-border);
+    box-shadow: 0 3px 0 0 var(--blue-bright-border);
+    background: var(--blue-bright);
+    text-shadow: 0 -1px var(--blue-bright-border);
+}
+
+.primary:hover {
+    border-color: var(--blue-bright-border-dark);
+    box-shadow: 0 3px 0 0 var(--blue-bright-border-dark);
+    background: var(--blue-bright-dark);
+    text-shadow: 0 -1px var(--blue-bright-border-dark);
+}
+
+
+.button + .button {
+    margin-top: 0.5rem;
+    margin-left: 0;
+}
+
+
+@media all and (min-width: 768px) {
+    .call-to-action .proceed {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .call-to-action .button {
+        width: 100%;
+    }
+
+    .button + .button {
+        margin-top: 0;
+        margin-left: 1rem;
+    }
+}
+
+.call-to-action .button {
+    display: block;
+}
+
+.newsletter-form {
+    display: flex;
+    margin: 2rem 0;
+}
+
+.newsletter-form button {
+    margin-left: 0.5rem;
+}
+
+@media all and (max-width: 450px) {
+    .newsletter-form {
+        display: block;
+        font-size: 1.2rem;
+    }
+
+    .newsletter-form input {
+        width: 100%;
+    }
+
+    .newsletter-form button {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        display: block;
+        width: 100%;
+    }
+}
+
+svg.icon {
+    height: 1rem;
+    width: 1rem;
+    fill-rule: evenodd;
+    fill: currentColor;
+}
+
+.footer {
+    background-color: #c5d1e0;
+    background-image: url("https://web.archive.org/web/20190404185624im_/https://www.transparenttextures.com/patterns/little-pluses.png");
+    color: black;
+    padding: 2rem;
+    margin-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+@media all and (max-width: 450px) {
+    .footer {
+        padding: 1rem;
+    }
+}
+
+.share {
+    background-color: #c5d1e0;
+    background-image: url("https://web.archive.org/web/20190404185624im_/https://www.transparenttextures.com/patterns/little-pluses.png");
+    color: black;
+    padding: 0.5em 1em;
+    margin: 1rem 0;
+    border-radius: 0.25em;
+}
+
+.share a {
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 0.5em;
+    color: black;
+}
+
+.share p {
+    margin: 0;
+}
+
+.error-404 {
+    max-width: 100%;
+    width: 30em;
+    margin: 0 auto;
+    color: black;
+}
+
+.error-404 .error-404__page {
+    margin: 1.1875rem;
+    padding: 4.75rem 1.1875rem 1.1875rem;
+    background: #fff;
+    border: 1px solid #97a1ad;
+}
+
+.error-404 .redacted:first-child {
+    margin-left: 0;
+}
+
+.error-404 .redacted {
+    margin-left: .29688rem;
+    margin-right: .29688rem;
+    background-color: #333c47;
+    color: transparent;
+}
+/*
+     FILE ARCHIVED ON 18:56:24 Apr 04, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:52:01 Jan 17, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 145.773
+  exclusion.robots: 0.08
+  exclusion.robots.policy: 0.066
+  cdx.remote: 0.065
+  esindex: 0.014
+  LoadShardBlock: 89.098 (3)
+  PetaboxLoader3.datanode: 110.975 (4)
+  load_resource: 152.207
+  PetaboxLoader3.resolve: 93.667
+*/
