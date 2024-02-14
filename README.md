@@ -67,4 +67,8 @@ Want to target a specific row based on whimsy or user interaction, or make it so
 
 Vaulter can also be used to update images, links, etc. as in the above examples. 
 
+## Contribute
+
+This code is an abomination and pox upon the earth. If you want to make it better, feel free to fork and update. Will probably license under MIT at some point.
+
 ![image](https://github.com/morisy/quickrocks/assets/136939/9831a43b-16a1-40c4-aff9-9307561623d0)
